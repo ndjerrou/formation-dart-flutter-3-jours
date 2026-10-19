@@ -1,0 +1,14 @@
+# Travaux personnels et fichiers générés.
+travaux/
+.dart_tool/
+.packages
+build/
+coverage/
+.flutter-plugins
+.flutter-plugins-dependencies
+.idea/
+*.iml
+.DS_Store
+.env
+.env.*
+!.env.example

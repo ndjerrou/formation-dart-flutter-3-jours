@@ -1,0 +1,5 @@
+name: formation_dart_flutter
+description: Supports et exercices de la formation Dart et Flutter.
+publish_to: none
+environment:
+  sdk: '>=3.4.0 <4.0.0'
