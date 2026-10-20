@@ -81,7 +81,7 @@ class CatalogueBloc extends Bloc<CatalogueEvent, CatalogueState> {
           ),
         );
       } catch (_) {
-        // Le chargement sera retenté plus tard.
+        emit(state.copyWith(statut: Chargement.erreur));
       }
     });
     on<BasculerFavori>((event, emit) async {
