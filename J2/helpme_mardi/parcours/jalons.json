@@ -1,0 +1,239 @@
+[
+  {
+    "numero": 1,
+    "nom": "01_accueil",
+    "titre": "Afficher et personnaliser le premier écran",
+    "fiches": [
+      "F01",
+      "F02",
+      "F03"
+    ],
+    "modifies": [
+      "main.dart",
+      "app.dart",
+      "configuration.dart",
+      "screens/catalogue_screen.dart"
+    ],
+    "conserves": []
+  },
+  {
+    "numero": 2,
+    "nom": "02_parametres",
+    "titre": "Ajouter un widget réutilisable à notre écran",
+    "fiches": [
+      "F04"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart",
+      "widgets/titre_section.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "main.dart",
+      "screens/catalogue_screen.dart"
+    ]
+  },
+  {
+    "numero": 3,
+    "nom": "03_presentation",
+    "titre": "Ajouter la première carte artisan",
+    "fiches": [
+      "F05",
+      "F06",
+      "F07"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart",
+      "models/artisan.dart",
+      "data/demo_artisans.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "main.dart",
+      "screens/catalogue_screen.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 4,
+    "nom": "04_catalogue",
+    "titre": "Afficher plusieurs artisans sans perdre la carte",
+    "fiches": [
+      "F08"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 5,
+    "nom": "05_favoris",
+    "titre": "Ajouter les favoris à notre catalogue",
+    "fiches": [
+      "F09",
+      "F10"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 6,
+    "nom": "06_composants",
+    "titre": "Extraire la carte en conservant les favoris",
+    "fiches": [
+      "F11"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart",
+      "widgets/carte_artisan.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 7,
+    "nom": "07_navigation",
+    "titre": "Ouvrir une fiche depuis le même catalogue",
+    "fiches": [
+      "F12"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart",
+      "screens/detail_screen.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "widgets/carte_artisan.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 8,
+    "nom": "08_formulaire",
+    "titre": "Ajouter le formulaire à la fiche",
+    "fiches": [
+      "F13",
+      "F14"
+    ],
+    "modifies": [
+      "screens/detail_screen.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "screens/detail_screen.dart",
+      "widgets/carte_artisan.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 9,
+    "nom": "09_asynchrone",
+    "titre": "Ajouter attente et erreur au formulaire existant",
+    "fiches": [
+      "F15",
+      "F16"
+    ],
+    "modifies": [
+      "screens/detail_screen.dart",
+      "services/service_demande.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "screens/detail_screen.dart",
+      "widgets/carte_artisan.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 10,
+    "nom": "10_responsive",
+    "titre": "Adapter les écrans sans changer leurs comportements",
+    "fiches": [
+      "F17",
+      "F18",
+      "F19"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "screens/detail_screen.dart",
+      "services/service_demande.dart",
+      "widgets/carte_artisan.dart",
+      "widgets/titre_section.dart"
+    ]
+  },
+  {
+    "numero": 11,
+    "nom": "11_recherche",
+    "titre": "Ajouter recherche et filtre aux favoris existants",
+    "fiches": [
+      "F20",
+      "F21"
+    ],
+    "modifies": [
+      "screens/catalogue_screen.dart"
+    ],
+    "conserves": [
+      "app.dart",
+      "configuration.dart",
+      "data/demo_artisans.dart",
+      "main.dart",
+      "models/artisan.dart",
+      "screens/catalogue_screen.dart",
+      "screens/detail_screen.dart",
+      "services/service_demande.dart",
+      "widgets/carte_artisan.dart",
+      "widgets/titre_section.dart"
+    ]
+  }
+]

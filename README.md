@@ -6,7 +6,7 @@ Les supports sont organisés par journée pour retrouver le travail fait en cour
 | Journée | Contenu | État |
 | --- | --- | --- |
 | [J1 - Dart](J1/README.md) | Bases, classes, todo list, deck de cartes et programme CLI | Disponible |
-| [J2 - Premiers pas avec Flutter](J2/README.md) | Projet Flutter, widgets et premiers écrans | À compléter pendant la formation |
+| [J2 - Premiers pas avec Flutter](J2/README.md) | HelpMe cumulatif : widgets, catalogue, favoris, fiche et formulaire | Disponible |
 | [J3 - Projet Flutter](J3/README.md) | Assemblage du projet et consolidation | À compléter pendant la formation |
 
 ## Commencer
@@ -37,7 +37,7 @@ J1/
   qcm_classes.md    # 30 questions et corrigé expliqué.
   recap.md          # Résumé des notions de la journée.
   verification.dart
-J2/                 # Supports de la deuxième journée.
+J2/                 # Projet Flutter cumulatif, PDF et onze jalons.
 J3/                 # Supports de la troisième journée.
 travaux/            # Tes essais locaux, ignorés par Git.
 ```
