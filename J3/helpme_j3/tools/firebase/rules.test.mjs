@@ -1,0 +1,22 @@
+import {readFileSync} from 'node:fs';
+import {test,before,after,beforeEach} from 'node:test';
+import {initializeTestEnvironment,assertSucceeds,assertFails} from '@firebase/rules-unit-testing';
+import {doc,setDoc,getDoc,updateDoc,deleteDoc,getDocs,collection,query,where} from 'firebase/firestore';
+let env;
+before(async()=>{env=await initializeTestEnvironment({projectId:'demo-helpme-j3',firestore:{host:'127.0.0.1',port:8086,rules:readFileSync(new URL('../../firestore.rules',import.meta.url),'utf8')}});});
+after(async()=>env?.cleanup());beforeEach(async()=>env.clearFirestore());
+const data={id:'req1',clientUid:'client',artisanId:1,artisanNom:'Gérard',motif:'Fuite cuisine',date:'2026-10-21T09:00:00Z',statut:'pending'};
+const db=(uid,claims={})=>env.authenticatedContext(uid,claims).firestore();
+async function seed(){await env.withSecurityRulesDisabled(async c=>setDoc(doc(c.firestore(),'demandes/req1'),data));}
+test('client peut créer sa demande',async()=>assertSucceeds(setDoc(doc(db('client'),'demandes/req1'),data)));
+test('anonyme non connecté refusé',async()=>assertFails(setDoc(doc(env.unauthenticatedContext().firestore(),'demandes/req1'),data)));
+test('usurpation client refusée',async()=>assertFails(setDoc(doc(db('autre'),'demandes/req1'),data)));
+test('prestataire ne crée pas comme client',async()=>assertFails(setDoc(doc(db('client',{role:'prestataire',artisanId:1}),'demandes/req1'),data)));
+test('statut accepté à la création refusé',async()=>assertFails(setDoc(doc(db('client'),'demandes/req1'),{...data,statut:'accepted'})));
+test('client propriétaire lit, autre client ne lit pas',async()=>{await seed();await assertSucceeds(getDoc(doc(db('client'),'demandes/req1')));await assertFails(getDoc(doc(db('autre'),'demandes/req1')));});
+test('client ne peut pas accepter sa demande',async()=>{await seed();await assertFails(updateDoc(doc(db('client'),'demandes/req1'),{statut:'accepted'}));});
+test('bon prestataire accepte mais ne réécrit pas le motif',async()=>{await seed();const ref=doc(db('gerard',{role:'prestataire',artisanId:1}),'demandes/req1');await assertFails(updateDoc(ref,{statut:'accepted',motif:'autre'}));await assertSucceeds(updateDoc(ref,{statut:'accepted'}));await assertFails(updateDoc(ref,{statut:'refused'}));});
+test('autre artisan refusé',async()=>{await seed();await assertFails(updateDoc(doc(db('sophie',{role:'prestataire',artisanId:2}),'demandes/req1'),{statut:'refused'}));});
+test('bon prestataire peut refuser',async()=>{await seed();await assertSucceeds(updateDoc(doc(db('gerard',{role:'prestataire',artisanId:1}),'demandes/req1'),{statut:'refused'}));});
+test('requêtes filtrées par propriétaire et artisan',async()=>{await seed();await assertSucceeds(getDocs(query(collection(db('client'),'demandes'),where('clientUid','==','client'))));await assertSucceeds(getDocs(query(collection(db('gerard',{role:'prestataire',artisanId:1}),'demandes'),where('artisanId','==',1))));await assertFails(getDocs(collection(db('client'),'demandes')));});
+test('suppression et champs supplémentaires refusés',async()=>{await seed();await assertFails(deleteDoc(doc(db('client'),'demandes/req1')));await assertFails(setDoc(doc(db('client'),'demandes/req2'),{...data,id:'req2',role:'prestataire'}));});

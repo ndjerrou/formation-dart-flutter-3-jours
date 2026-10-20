@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "nom": "Gérard",
+    "metier": "Plomberie",
+    "tarif": 65,
+    "icone": "plomberie",
+    "description": "Installation, entretien et réparation de vos équipements."
+  },
+  {
+    "id": 2,
+    "nom": "Sophie",
+    "metier": "Électricité",
+    "tarif": 80,
+    "icone": "electricite",
+    "description": "Éclairage et petits travaux électriques à domicile."
+  },
+  {
+    "id": 3,
+    "nom": "Pierre",
+    "metier": "Carrelage",
+    "tarif": 95,
+    "icone": "carrelage",
+    "description": "Pose et rénovation de vos sols et murs."
+  },
+  {
+    "id": 4,
+    "nom": "Lina",
+    "metier": "Menuiserie",
+    "tarif": 70,
+    "icone": "menuiserie",
+    "description": "Aménagements et réparations sur mesure."
+  },
+  {
+    "id": 5,
+    "nom": "Sami",
+    "metier": "Peinture",
+    "tarif": 55,
+    "icone": "peinture",
+    "description": "Préparation et mise en couleur de vos intérieurs."
+  },
+  {
+    "id": 6,
+    "nom": "Aya",
+    "metier": "Jardinage",
+    "tarif": 45,
+    "icone": "jardinage",
+    "description": "Entretien des petits espaces verts et plantations."
+  }
+]

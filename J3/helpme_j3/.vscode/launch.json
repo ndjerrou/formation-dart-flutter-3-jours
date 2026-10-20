@@ -1,0 +1,1 @@
+{"version":"0.2.0","configurations":[{"name":"HelpMe J3 - local","request":"launch","type":"dart","program":"lib/main.dart"},{"name":"HelpMe J3 - Firebase","request":"launch","type":"dart","program":"lib/main.dart","toolArgs":["--dart-define=USE_FIREBASE=true","--dart-define=DEMO_TOOLS=true"]}]}

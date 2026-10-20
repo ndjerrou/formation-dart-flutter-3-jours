@@ -1,0 +1,10 @@
+include: package:flutter_lints/flutter.yaml
+analyzer:
+  exclude:
+    - "recette_finale/**"
+    - "**/node_modules/**"
+    - lib/**/*.g.dart
+    - build/**
+    - android/**
+    - ios/**
+    - web/**

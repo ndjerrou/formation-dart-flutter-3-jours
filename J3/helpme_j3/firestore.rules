@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+ match /databases/{database}/documents {
+  function connecte(){return request.auth != null;}
+  function prestataire(){return connecte() && request.auth.token.get('role','client') == 'prestataire';}
+  function monArtisan(d){return prestataire() && request.auth.token.get('artisanId',-1) == d.artisanId;}
+  match /demandes/{id} {
+   allow read: if connecte() && (resource.data.clientUid == request.auth.uid || monArtisan(resource.data));
+   allow create: if connecte() && !prestataire()
+    && request.resource.data.keys().hasAll(['id','clientUid','artisanId','artisanNom','motif','date','statut'])
+    && request.resource.data.keys().hasOnly(['id','clientUid','artisanId','artisanNom','motif','date','statut'])
+    && request.resource.data.id == id
+    && request.resource.data.clientUid == request.auth.uid
+    && request.resource.data.artisanId is int && request.resource.data.artisanId >= 1 && request.resource.data.artisanId <= 6
+    && request.resource.data.artisanNom is string
+    && request.resource.data.date is string
+    && request.resource.data.motif is string && request.resource.data.motif.size() >= 5 && request.resource.data.motif.size() <= 1000
+    && request.resource.data.statut == 'pending';
+   allow update: if monArtisan(resource.data) && resource.data.statut == 'pending'
+    && request.resource.data.statut in ['accepted','refused']
+    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['statut']);
+   allow delete: if false;
+  }
+ }
+}
