@@ -40,9 +40,7 @@ class CatalogueRepository {
       if (response.statusCode != 200) {
         throw StateError('HTTP ${response.statusCode}');
       }
-      final artisans = decoder(
-        utf8.decode(response.bodyBytes).replaceAll('"tarif"', '"prix"'),
-      );
+      final artisans = decoder(utf8.decode(response.bodyBytes));
       await store.sauverCatalogue(artisans.map((a) => a.toJson()).toList());
       return CatalogueResultat(artisans, 'http');
     } catch (_) {
