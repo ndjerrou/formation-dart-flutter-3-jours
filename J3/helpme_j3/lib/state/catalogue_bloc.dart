@@ -28,11 +28,12 @@ class CatalogueState {
   CatalogueState({
     this.statut = Chargement.initial,
     List<Artisan> artisans = const [],
-    this.favoris = const {},
+    Set<int> favoris = const {},
     this.recherche = '',
     this.seulementFavoris = false,
     this.source = 'assets',
-  }) : artisans = List.unmodifiable(artisans);
+  }) : artisans = List.unmodifiable(artisans),
+       favoris = Set.unmodifiable(favoris);
   final Chargement statut;
   final List<Artisan> artisans;
   final Set<int> favoris;
@@ -85,11 +86,11 @@ class CatalogueBloc extends Bloc<CatalogueEvent, CatalogueState> {
     });
     on<BasculerFavori>((event, emit) async {
       // Copier avant de modifier : le précédent état reste intact.
-      final ids = state.favoris;
+      final ids = Set<int>.of(state.favoris);
       ids.contains(event.id) ? ids.remove(event.id) : ids.add(event.id);
       try {
         // Favoris conservés dans l’état courant.
-        emit(state);
+        emit(state.copyWith(favoris: ids));
       } catch (_) {
         emit(state.copyWith(statut: Chargement.erreur));
       }
