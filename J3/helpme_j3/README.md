@@ -4,7 +4,7 @@ Ouvrir ce dossier dans VS Code (celui qui contient `pubspec.yaml`).
 
 ```bash
 flutter pub get
-flutter run -d chrome --web-port 8310
+flutter run -d chrome --web-port 8320
 ```
 
 Pour comparer deux versions, utiliser un port différent pour chacune : 8310 pour

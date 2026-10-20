@@ -13,7 +13,6 @@ import 'package:helpme_j3/state/langue_cubit.dart';
 import 'package:helpme_j3/services/notifications.dart';
 
 import 'support.dart';
-
 import 'package:helpme_j3/screens/catalogue_screen.dart';
 
 class CatalogueUi extends CatalogueRepository {
@@ -34,7 +33,7 @@ Future<SessionCubit> demarrer(
   Size taille = const Size(390, 844),
   double echelle = 1,
 }) async {
-  t.platformDispatcher.textScaleFactorTestValue = echelle;
+  t.platformDispatcher.textScaleFactorTestValue=echelle;
   addTearDown(t.platformDispatcher.clearTextScaleFactorTestValue);
   await t.binding.setSurfaceSize(taille);
   addTearDown(() => t.binding.setSurfaceSize(null));
@@ -86,12 +85,11 @@ void main() {
     expect(t.takeException(), isNull);
     await t.pumpWidget(const SizedBox());
   });
-  testWidgets('Catalogue 320 : texte agrandi x2', (t) async {
-    await demarrer(t, taille: const Size(320, 900), echelle: 2);
-    final e = t.element(find.byType(CatalogueScreen));
-    expect(MediaQuery.textScalerOf(e).scale(10), 20);
-    expect(t.takeException(), isNull);
-    await t.pumpWidget(const SizedBox());
+  testWidgets('Catalogue 320 : texte agrandi x2', (t)async{
+    await demarrer(t,taille:const Size(320,900),echelle:2);
+    final e=t.element(find.byType(CatalogueScreen));
+    expect(MediaQuery.textScalerOf(e).scale(10),20);
+    expect(t.takeException(),isNull);await t.pumpWidget(const SizedBox());
   });
   testWidgets('Catalogue tablette : grille', (t) async {
     await demarrer(t, taille: const Size(1100, 900));
