@@ -27,7 +27,7 @@ class LocalStore {
       (await _demandes.find(db)).map((r) => Demande.fromJson(r.value)).toList();
   Future<void> sauverDemande(Demande demande) async {
     // Un identifiant par demande : ne pas écraser la précédente.
-    await _demandes.record('unique').put(db, demande.toJson());
+    await _demandes.record(demande.id).put(db, demande.toJson());
   }
 
   Future<void> transitionDemande(String id, StatutDemande statut) =>
