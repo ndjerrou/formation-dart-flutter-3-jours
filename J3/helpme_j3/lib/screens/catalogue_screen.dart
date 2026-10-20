@@ -122,7 +122,7 @@ class CatalogueScreen extends StatelessWidget {
                     favori: etat.favoris.contains(a.id),
                     onFavori: () =>
                         context.read<CatalogueBloc>().add(BasculerFavori(a.id)),
-                    onOuvrir: () => context.push('/artisans/${i + 1}'),
+                    onOuvrir: () => context.push('/artisans/${a.id}'),
                   );
                 }
 
