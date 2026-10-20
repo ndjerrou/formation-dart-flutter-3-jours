@@ -36,8 +36,7 @@ class CarteArtisan extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 12),
-                SizedBox(
-                  width: 220,
+                Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
