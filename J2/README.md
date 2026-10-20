@@ -5,6 +5,7 @@ Chaque jalon conserve les fonctionnalités déjà construites.
 
 ## Les supports à utiliser
 
+- [QCM Flutter — 30 questions](qcm_flutter.md).
 - [PDF du cours](mardi-flutter-eleve.pdf) : notions, exercices et quiz.
 - [Le même cours en Markdown](cours.md).
 - [Télécharger le kit élève](https://raw.githubusercontent.com/ndjerrou/formation-dart-flutter-3-jours/main/J2/ressources/mardi-flutter-code-eleve.zip).
