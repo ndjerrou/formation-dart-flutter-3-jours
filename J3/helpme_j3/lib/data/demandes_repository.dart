@@ -47,7 +47,6 @@ class DemandesRepository {
           : query.where('clientUid', isEqualTo: session.uid);
       return query
           .snapshots(includeMetadataChanges: true)
-          .take(1)
           .map(
             (snapshot) => snapshot.docs
                 .map(
@@ -60,7 +59,7 @@ class DemandesRepository {
           );
     }
     // asyncExpand évite un trou entre la lecture initiale et l'abonnement.
-    return _localStream(session).take(1);
+    return _localStream(session);
   }
 
   Stream<List<Demande>> _localStream(Session session) {
