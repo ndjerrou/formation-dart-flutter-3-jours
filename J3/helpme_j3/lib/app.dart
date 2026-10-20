@@ -1,5 +1,3 @@
-import 'state/catalogue_bloc.dart';
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -67,15 +65,9 @@ class _HelpMeAppState extends State<HelpMeApp> {
         ),
         GoRoute(
           path: '/artisans/:id',
-          builder: (context, state) {
-            final repository = context.read<CatalogueBloc>().repository;
-            return BlocProvider(
-              create: (_) => CatalogueBloc(repository)..add(ChargerCatalogue()),
-              child: DetailScreen(
-                id: int.tryParse(state.pathParameters['id'] ?? '') ?? -1,
-              ),
-            );
-          },
+          builder: (context, state) => DetailScreen(
+            id: int.tryParse(state.pathParameters['id'] ?? '') ?? -1,
+          ),
         ),
         GoRoute(
           path: '/connexion',
