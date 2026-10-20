@@ -56,6 +56,13 @@ son formulaire ne sont pas remplacés quand on adapte la largeur.
 | 10 | Mise en page adaptative et vérifications |
 | 11 | Recherche combinée au filtre des favoris |
 
+## Corrections des étapes utilisées en cours
+
+Les [corrections par fichier](helpme_mardi/etapes_corrigees/README.md) reprennent
+les noms du premier kit : `01_bonjour`, `01b_parametres`, `02_layout`, jusqu’à
+`10_responsive`. Chaque fichier est complet et peut être lancé séparément.
+Leur README indique les commandes et la différence avec le parcours cumulatif.
+
 ## Corrections et vérifications
 
 `helpme_mardi/corrections/` contient le dossier `lib` complet après chaque jalon.
