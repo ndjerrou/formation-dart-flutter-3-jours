@@ -5,7 +5,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 String? cheminNotification(Map<String, dynamic> data) {
   final id = data['demandeId'];
   if (id is! String || !RegExp(r'^[a-zA-Z0-9_-]+$').hasMatch(id)) return null;
-  return '/';
+  return '/demandes/$id';
 }
 
 class Notifications {
