@@ -89,7 +89,7 @@ class CatalogueBloc extends Bloc<CatalogueEvent, CatalogueState> {
       final ids = Set<int>.of(state.favoris);
       ids.contains(event.id) ? ids.remove(event.id) : ids.add(event.id);
       try {
-        // Favoris conservés dans l’état courant.
+        await repository.store.sauverFavoris(ids);
         emit(state.copyWith(favoris: ids));
       } catch (_) {
         emit(state.copyWith(statut: Chargement.erreur));
