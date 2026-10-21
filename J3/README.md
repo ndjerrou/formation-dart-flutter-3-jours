@@ -13,5 +13,4 @@ flutter test
 
 Le mode local utilise une base de démonstration. Le mode Firebase requiert votre
 configuration et contrôle les droits côté serveur. Les notifications réelles sont
-prévues sur un iPhone configuré. Le workflow GitHub est préparé mais n’a pas été
-exécuté à distance tant que cette branche reste locale.
+prévues sur un iPhone configuré. Le workflow GitHub lance les vérifications Flutter à chaque publication de code.
