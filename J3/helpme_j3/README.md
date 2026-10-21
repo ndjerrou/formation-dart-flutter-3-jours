@@ -1,5 +1,13 @@
 # HelpMe - J3
 
+## Parcours de résolution
+
+Commencer par le [parcours des 10 bugs](consignes/README.md). Chaque fiche décrit
+le problème à reproduire, le résultat attendu et les vérifications à effectuer.
+Suivre leur ordre et consigner les résultats avant de passer à la suivante.
+
+## Lancer le projet
+
 Ouvrir ce dossier dans VS Code (celui qui contient `pubspec.yaml`).
 
 ```bash
